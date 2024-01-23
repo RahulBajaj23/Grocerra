@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e69303cf.css",
+    "main.js": "/static/js/main.72753111.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/grocery-image.png": "/static/media/grocery-image.53bbd0a05584ae321b0d.png",
+    "static/media/empty.gif": "/static/media/empty.644ecc4e5dd68dfc0977.gif",
+    "static/media/login-animation.gif": "/static/media/login-animation.97a8f494ac4826dd1781.gif",
+    "static/media/logo.jpg": "/static/media/logo.626c4d49b28d4f16499f.jpg",
+    "static/media/vegetable-categ.jpg": "/static/media/vegetable-categ.d74f98f6f67767c3670e.jpg",
+    "static/media/motorbike-food-delivery-service-online-ordering-concept_68708-2241.avif": "/static/media/motorbike-food-delivery-service-online-ordering-concept_68708-2241.981c622ebcc1bb92fee6.avif",
+    "index.html": "/index.html",
+    "main.e69303cf.css.map": "/static/css/main.e69303cf.css.map",
+    "main.72753111.js.map": "/static/js/main.72753111.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e69303cf.css",
+    "static/js/main.72753111.js"
+  ]
+}
