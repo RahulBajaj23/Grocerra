@@ -13,7 +13,12 @@ const PORT = process.env.PORT || 8080
 // Mongodb
 mongoose.set('strictQuery', false)
 
-mongoose.connect(process.env.MONGODB_URL).then(() => console.log("Database connected")).catch((err) => console.log(err))
+mongoose.connect(process.env.MONGODB_URL, { useUnifiedTopology: true }).then(() => {
+    console.log("Database connected");
+}).catch((err) => {
+    console.log(err);
+});
+
 
 //schema
 const userSchema = mongoose.Schema({
