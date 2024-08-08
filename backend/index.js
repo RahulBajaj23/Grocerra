@@ -42,6 +42,11 @@ app.get("/", (req, res) => {
     res.send("server is running")
 })
 
+const isValidPassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+    return passwordRegex.test(password);
+};
+
 //signup
 
 app.post("/signup", async (req, res) => {
@@ -113,6 +118,28 @@ app.post("/uploadProduct", async (req, res) => {
 
     res.send({ message: "Uploaded Successfully" })
 })
+// Update product
+app.put("/updateProduct/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const updatedProduct = await productModel.findByIdAndUpdate(id, req.body, { new: true });
+        res.send({ message: "Product updated successfully", updatedProduct });
+    } catch (err) {
+        res.status(500).send({ message: "Error updating product", error: err });
+    }
+});
+
+// Delete product
+app.delete("/deleteProduct/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        await productModel.findByIdAndDelete(id);
+        res.send({ message: "Product deleted successfully" });
+    } catch (err) {
+        res.status(500).send({ message: "Error deleting product", error: err });
+    }
+});
+
 
 app.get("/product", async (req, res) => {
     const data = await productModel.find({})
@@ -133,6 +160,7 @@ app.post("/checkout-payment",async(req,res)=>{
             submit_type:'pay',
             mode:'payment',
             payment_method_types :['card'],
+            name:['name'],
             billing_address_collection:'auto',
             shipping_options:[{shipping_rate:'shr_1NvfnzSHepQMBRKVXS4fQp6w'}],
 

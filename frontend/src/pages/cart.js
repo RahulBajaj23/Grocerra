@@ -20,9 +20,9 @@ const Cart = () => {
 
     const handlePaymentGateway=async()=>{
         if (user.email){
-            console.log('Stripe Public Key:', process.env.REACT_APP_STRIPE_PUBIC_KEY); // Check the value here
+            console.log('Stripe Public Key:', process.env.REACT_APP_STRIPE_PUBLIC_KEY); // Check the value here
     
-            const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBIC_KEY);
+            const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
             console.log('Stripe Promise:', stripePromise);
 
         const res =await fetch(`${process.env.REACT_APP_DOMAIN}/checkout-payment`,{

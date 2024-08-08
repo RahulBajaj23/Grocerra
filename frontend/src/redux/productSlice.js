@@ -57,6 +57,9 @@ export const productSlice = createSlice({
 
                 state.cartItem[index].total=total
             
+            }else {
+                state.cartItem.splice(index, 1);
+                toast("Item removed from cart");
             }
             
         }

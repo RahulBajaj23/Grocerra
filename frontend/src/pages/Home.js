@@ -7,6 +7,7 @@ import CardFeatures from '../components/cardFeatures'
 import { GrPrevious, GrNext } from 'react-icons/gr'
 import FilterProduct from '../components/filterProduct'
 import AllProducts from '../components/AllProducts'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
     const productData = useSelector((state) => state.product.productList)
@@ -19,11 +20,16 @@ const Home = () => {
     const loadingArrayFeature = new Array(10).fill(null)
 
     const slideProduct = useRef()
+    const navigate=useNavigate();
+    
     const nextProduct = () => {
         slideProduct.current.scrollLeft += 200
     }
     const prevProduct = () => {
         slideProduct.current.scrollLeft -= 200
+    };
+    const handleOrderNowClick=()=>{
+        navigate('/cart');
     }
 
 
@@ -43,7 +49,9 @@ const Home = () => {
                         <p className="pt-4">Gracify offer a wide range of products,including fresh products,meats,<br />dairy,bread
                             goods and
                             non-perishable items</p>
-                        <button className='bg-green-500 hover:bg-green-600 w-28 text-center font-semibold text-lg py-1 my-10  rounded-md'>Order Now</button>
+                        <button 
+                        onClick={handleOrderNowClick}
+                        className='bg-green-500 hover:bg-green-600 w-28 text-center font-semibold text-lg py-1 my-10  rounded-md'>Order Now</button>
                     </div>
                     <div>
                         <img src={martManimg} className="md:w-1/2" alt=''></img>
