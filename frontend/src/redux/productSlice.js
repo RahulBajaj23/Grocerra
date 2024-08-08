@@ -45,23 +45,20 @@ export const productSlice = createSlice({
 
             state.cartItem[index].total=total
         },
-        decreaseQty:(state,action)=>{
-            const index=state.cartItem.findIndex((el)=>el._id===action.payload)
-            let quantity=state.cartItem[index].qty
-            if(quantity>=1){
-                const decQty=--quantity
-                state.cartItem[index].qty=decQty
-
-                const price=state.cartItem[index].price
-                const total=price*decQty
-
-                state.cartItem[index].total=total
-            
-            }else {
+        decreaseQty: (state, action) => {
+            const index = state.cartItem.findIndex((el) => el._id === action.payload);
+            let quantity = state.cartItem[index].qty;
+        
+            if (quantity > 1) {
+                // Decrease quantity and update total if more than 1
+                quantity--;
+                state.cartItem[index].qty = quantity;
+                state.cartItem[index].total = state.cartItem[index].price * quantity;
+            } else if (quantity === 1) {
+                // Remove item if quantity is 1
                 state.cartItem.splice(index, 1);
                 toast("Item removed from cart");
             }
-            
         }
     }
 
