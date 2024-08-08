@@ -33,7 +33,7 @@ const Menu = () => {
 
                     <p className='text-black font-semibold md:text-2xl'><span className='text-red-600 pr-1 md:text-2xl'>₹</span><span>{productDisplay.price}</span></p>
                     <div className='flex gap-3'>
-                        <button onClick={handleBuy} className='bg-red-500  rounded-md hover:bg-red-600 min-w-[100px]'>Buy</button>
+                        {/* <button onClick={handleBuy} className='bg-red-500  rounded-md hover:bg-red-600 min-w-[100px]'>Buy</button> */}
                         <button onClick={handleAddtoCart} className='bg-red-500  rounded-md hover:bg-red-600 min-w-[100px]'>Add Cart</button>
                     </div>
                     <div>
